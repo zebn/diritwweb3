@@ -1,0 +1,34 @@
+    
+    <!-- New Tweet section -->
+
+    <!-- Tweets -->
+    <div *ngIf="tweets.length > 0" style="margin-left: 5mm;">
+        <div class="pt-4 flex">
+            <div class="shrink-0">
+                <img class="w-28 h-28 rounded-full" [src]="tweets[0].author?.avatar">
+            </div>
+            <div class="w-full pl-1">
+                <a (click)="openDialog()" class="relative w-28 h-9 rounded-full flex items-center justify-center hover:bg-slate-200 text-black" href="javascript:void(null);" 
+                style="margin-top: 18mm; float: right; margin-right: 4mm; font-size: 16px; font-weight: bold; border: 1px solid silver;">
+                    Editar Perfil
+                </a>
+            </div>
+        </div>
+    
+        <!-- Description -->
+        <div class="flex-grow">
+            <p class="font-bold dark:text-white text-lg" style="margin-bottom: 0px !important;">{{tweets[0].author?.name}}</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm" style="margin-bottom: 4mm;">@{{tweets[0].author?.name}}</p>
+        </div>
+     
+        <div class="w-14 shrink-0">
+            <p class="text-[15px] dark:text-white">{{tweets[0].author?.bio}}</p>
+        </div>
+    </div>
+    
+    <div class="border-b border-gray-200 dark:border-gray-600 w-full px-4 py-3">
+        <h2 class="font-bold dark:text-white text-xl">Your tweets</h2>
+        <tweet [tweet]="item" *ngFor="let item of tweets"></tweet>
+    </div>
+       
+    

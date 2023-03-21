@@ -1,0 +1,49 @@
+<div class="dialog">
+    <div mat-dialog-title>
+        <div class="actions">
+            <button (click)="onNoClick()" style="float: left; color: black; font-size: 20px; font-family: monospace;">
+                <i class="material-icons" style="margin-top: 1mm;">close</i>
+            </button>
+            <label style="margin-left: 7%;">Editar Perfil</label>
+            <button [mat-dialog-close]="data" cdkFocusInitial style="float: right; background-color: black; font-size: 16px; margin-right: 6mm;" 
+            class="relative w-20 h-8 rounded-full flex items-center justify-center text-white">Guardar</button>
+            
+            <input type="file" class="file-input" #fileInput (change)="onFileSelected($event)" hidden>
+            <a href="javascript:void(null)" class="file-input" (click)="fileInput.click()">
+                <div class="img">
+                    <i class="material-icons">linked_camera</i>
+                    <img class="w-28 h-28 rounded-full" [src]="data.avatar" style="margin-top: 15mm; margin-left: 4mm;">
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    <mat-dialog-content class="dialog-content">
+        <mat-list rol="list" class="dialog-list">
+            <mat-list-item role="listitem" class="item">
+                <mat-form-field appearance="fill" class="dialog-item">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [(ngModel)]="data.name">
+                </mat-form-field>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="item">
+                <mat-form-field appearance="fill" class="dialog-item" style="height: 120px !important;">
+                    <mat-label>Bio</mat-label>
+                    <textarea matInput [(ngModel)]="data.bio"></textarea>
+                </mat-form-field>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="item">
+                <mat-form-field appearance="fill" class="dialog-item " style="margin-top: 6mm !important;">
+                    <mat-label>Ubicación</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="item">
+                <mat-form-field appearance="fill" class="dialog-item" >
+                    <mat-label>Sitio Web</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </mat-list-item>
+        </mat-list>
+    </mat-dialog-content>
+</div>

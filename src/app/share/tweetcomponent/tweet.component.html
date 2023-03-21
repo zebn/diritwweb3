@@ -1,0 +1,15 @@
+<a href="#" class="block border-b border-gray-200 dark:border-gray-600 w-full px-4 py-3 transition hover:bg-gray-100 dark:hover:bg-white/5">
+  <div class="flex space-x-2 py-2">
+    <div class="w-14 shrink-0">
+      <img class="w-12 h-12 rounded-full" [src]="tweet?.author?.avatar">
+    </div>
+    <div class="flex-grow">
+      <p class="text-gray-600 dark:text-gray-400 font-normal text-sm"><span class="font-bold text-black dark:text-white text-base">{{tweet?.author?.name}}</span> {{tweet?.author?.address}} &middot; {{tweet?.date | date: 'd MMM y'}}</p>
+      <p class="text-[15px] dark:text-white">{{tweet?.message}}</p>
+      <p *ngIf="tweet?.image != null && tweet?.image != ''"><img [src]="'https://mysupercoolipfs.infura-ipfs.io/ipfs/' + tweet?.image"></p>
+    </div>
+    <div class="shrink-0">
+      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><g><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></g></svg>
+    </div>
+  </div>
+</a>

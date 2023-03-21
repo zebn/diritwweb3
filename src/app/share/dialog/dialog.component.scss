@@ -1,0 +1,42 @@
+.dialog{
+    height: 600px;
+    width: 570px;
+  }
+
+  .actions{
+    margin-top: 0px !important;
+  }
+
+  .dialog-content{
+    height: 500px;
+  }
+
+  .dialog-item{
+    margin-top: 2mm !important;
+    width: 100% !important;
+    margin-bottom: 0px !important;
+  }
+
+  .dialog-list{
+    height: 50%;
+  }
+
+  .item{
+    height: 100px !important;
+  }
+
+  .img {
+    position: relative;
+  }
+  
+  .img i {
+    top: 50%;
+    left: 14%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: rgb(109, 108, 108);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    opacity: 0.85;
+  }
