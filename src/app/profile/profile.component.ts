@@ -44,6 +44,7 @@ export class ProfileComponent implements AfterViewInit {
     this.web3Service.userConected$.subscribe((status: boolean) => 
     {
       this.user = this.userService.getUserInSession();
+      
       this.loadTweets();
       this.user = this.tweets[0].author;
     });
@@ -53,6 +54,7 @@ export class ProfileComponent implements AfterViewInit {
   {
     this.user = this.userService.getUserInSession();
     this.loadTweets();
+    console.log("User web3: ",this.user.owner,this.user.avatar);
   }
 
   private loadTweets()
@@ -84,7 +86,7 @@ export class ProfileComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe(result => 
     {
       this.user.name = result.name;
-      this.user.avatar = result.avatar;
+      this.user.avatarBuffer = result.avatar;
       this.user.bio = result.bio;
 
       this.userService.updateUser(this.user);

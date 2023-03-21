@@ -57,6 +57,9 @@ export class UserService {
 
     public buildUser(userFromWeb3: any) 
     {
+
+        console.log("User web3: ",userFromWeb3.owner,userFromWeb3.avatar);
+
         let user = new User(
                             "",
                             userFromWeb3.name,
@@ -65,15 +68,6 @@ export class UserService {
         return user;
     }
 
-    /*public buildMyUser(userFromWeb3: any) 
-    {   
-        console.log("Usserrr web3: ",userFromWeb3.owner);
-
-        this.anonymousUser.address = userFromWeb3.owner
-        this.anonymousUser.name = userFromWeb3.name
-        this.anonymousUser.bio = userFromWeb3.bio
-        this.anonymousUser.avatar = 'https://mysupercoolipfs.infura-ipfs.io/ipfs/' + userFromWeb3.avatar;
-    }*/
 
     public getUserInSession() {
         return this.userInSession;
