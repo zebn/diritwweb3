@@ -72,7 +72,7 @@
           <div class="text-sm xl:ml-3 hidden xl:block">
             
               <div *ngIf="tweets.length > 0" class="shrink-0">
-                {{tweets[0].author?.name}}
+               <b>{{tweets[0].author?.name}}</b> 
                 <img class="w-28 h-28 rounded-full" [src]="tweets[0].author?.avatar">
                 
             </div>
