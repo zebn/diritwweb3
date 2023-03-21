@@ -68,11 +68,15 @@
         </a>
       </li>
       <li class="mt-auto mb-3">
-        <a class="text-black relative hover:bg-gray-200 dark:hover:bg-gray-700 h-12 w-12 md:h-16 md:w-16 xl:w-full xl:px-3 rounded-full flex items-center justify-center xl:justify-start" href="#">
-          <img class="w-10 h-10 rounded-full" src="https://pbs.twimg.com/profile_images/1481281375835725825/rZzCEFm3_400x400.jpg">
+        <a routerLink="/profile" class="text-black relative hover:bg-gray-200 dark:hover:bg-gray-700 h-12 w-12 md:h-16 md:w-16 xl:w-full xl:px-3 rounded-full flex items-center justify-center xl:justify-start" href="#">
           <div class="text-sm xl:ml-3 hidden xl:block">
-            <p class="font-bold dark:text-white">Sean</p>
-            <p class="text-gray-500 dark:text-gray-400">@shornuk</p>
+            
+              <div *ngIf="tweets.length > 0" class="shrink-0">
+                {{tweets[0].author?.name}}
+                <img class="w-28 h-28 rounded-full" [src]="tweets[0].author?.avatar">
+                
+            </div>
+           
           </div>
           <svg viewBox="0 0 24 24" class="hidden xl:inline-block w-5 h-5 dark:text-gray-400 fill-current ml-auto mr-1"><g><circle cx="5" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle></g></svg>
         </a>

@@ -31,9 +31,9 @@ export class ProfileComponent implements AfterViewInit {
   public subscription: Subscription = new Subscription();
   public isUserConnected: boolean = false;
 
-  public name: string | undefined;
-  public avatar: string | undefined;
-  public bio: string | undefined;
+  public name: string ="";
+  public avatar: string ="";
+  public bio: string ="";
 
   public constructor(
     private tweetService: TweetService, 

@@ -16,6 +16,8 @@ import { DialogComponent } from './share/dialog/dialog.component';
 import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatListModule,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule
   ],
   providers: [
     TweetService,
