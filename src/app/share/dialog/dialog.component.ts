@@ -20,8 +20,7 @@ export class DialogComponent {
 
   onNoClick(): void 
   {
-    console.log("DATA SAVED: ",this.data)
-    this.dialogRef.close();
+   this.dialogRef.close();
   }
 
   public onFileSelected(event: any) 
