@@ -1,4 +1,4 @@
-<div class="pt-4 flex">
+<div *ngIf="userInSession?.name!='Anonymous User'" class="pt-4 flex">
     <div class="w-14 shrink-0">
         <img class="w-12 h-12 rounded-full" [src]="userInSession?.avatar">
     </div>

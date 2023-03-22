@@ -5,7 +5,7 @@
     <div *ngIf="tweets.length > 0" style="margin-left: 5mm;">
         <div class="pt-4 flex">
             <div class="shrink-0">
-                <img class="w-28 h-28 rounded-full" [src]="tweets[0].author?.avatar">
+                <img class="w-28 h-28 rounded-full"  [src]="tweets[0].author?.avatar">
             </div>
             <div class="w-full pl-1">
                 <a (click)="openDialog()" class="relative w-28 h-9 rounded-full flex items-center justify-center hover:bg-slate-200 text-black" href="javascript:void(null);" 

@@ -58,9 +58,10 @@ export class TweetService {
                 tweet.image = tweetData.tweetImage;
                 tweet.date = new Date(tweetData.date * 1000);
                 let authorAddress = tweetData.author;
-                let authorImage = tweetData.avatar
+                let authorImage = tweetData.author.avatar
                 let user = await this.userService.getUser(authorAddress);
-                user.avatar = authorImage;
+                if (authorImage){tweet.author!.avatar = authorImage;}
+                
                 tweet.author = user;
                 returnValue.push(tweet);
             }

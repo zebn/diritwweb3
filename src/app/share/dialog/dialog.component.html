@@ -2,7 +2,7 @@
     <div mat-dialog-title>
         <div class="actions">
             <button (click)="onNoClick()" style="float: left; color: black; font-size: 20px; font-family: monospace;">
-                <i class="material-icons" style="margin-top: 1mm;">Close</i>
+                <i class="material-icons" style="margin-top: 1mm;">X</i>
             </button>
             <label style="margin-left: 7%;">Edit Profile</label>
             <label style="margin-left: 7%;">You need to fill all fields to firm a contract</label>
@@ -11,7 +11,7 @@
             <input type="file" class="file-input" #fileInput (change)="onFileSelected($event)" hidden>
             <a href="javascript:void(null)" class="file-input" (click)="fileInput.click()">
                 <div class="img">
-                    <i class="camera">icon</i>
+                    <i class="camera">Open</i>
                     <img class="w-28 h-28 rounded-full" [src]="data.avatar" style="margin-top: 15mm; margin-left: 4mm;">
                 </div>
             </a>

@@ -31,7 +31,7 @@ export class NewTweetComponent {
         this.userInSession = this.userService.anonymousUser;
 
         this.userService.userInSessionChanged$.subscribe(userInSession => {
-            this.userInSession = userInSession;
+            this.userInSession = this.userService.getUserInSession();;
         })
 
         this.form = this.formBuilder.group({
