@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit,ApplicationRef,  Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Tweet } from '../share/model/tweet';
 import { User } from '../share/model/user';
@@ -30,17 +30,28 @@ export class ProfileComponent implements  OnDestroy, OnInit,AfterViewInit {
 
   public subscription: Subscription = new Subscription();
   public isUserConnected: boolean = false;
+  public isWalletConnected: boolean = false;
 
   public name: string = "";
   public avatar: string = "";
   public bio: string = "";
 
-  public constructor(    private tweetService: TweetService,    private userService: UserService,    private web3Service: Web3Service,    public dialog: MatDialog) {
+  public constructor(    private tweetService: TweetService,protected applicationRef: ApplicationRef,    private userService: UserService,    private web3Service: Web3Service,    public dialog: MatDialog) {
 
     
     this.user = this.userService.anonymousUser;
 
     this.user = this.userService.getUserInSession();
+
+    this.web3Service.status$.subscribe((status: boolean) => {
+      this.isWalletConnected = status;
+      this.applicationRef.tick();
+      this.user = this.userService.getUserInSession();
+      this.loadTweets();
+      if (this.tweets[0]){
+      this.user = this.tweets[0].author;
+      }
+    });
 
     this.userService.userInSessionChanged$.subscribe(userInSession => {
         this.user = this.userService.getUserInSession();;
@@ -65,6 +76,14 @@ export class ProfileComponent implements  OnDestroy, OnInit,AfterViewInit {
   public ngAfterViewInit() {
 
    
+  }
+
+  private loadTweets()
+  {
+    this.tweetService.getMyTweets().then((tweets: Tweet[]) => 
+    {
+      this.tweets = tweets;
+    });
   }
 
   public ngOnDestroy() {
