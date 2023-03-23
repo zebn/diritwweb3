@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Tweet } from '../share/model/tweet';
 import { User } from '../share/model/user';
@@ -22,7 +22,7 @@ export interface DialogData {
   styleUrls: ['./profile.component.scss']
 })
 
-export class ProfileComponent implements  OnDestroy {
+export class ProfileComponent implements  OnDestroy, OnInit,AfterViewInit {
 
   public tweets: Tweet[] = [];
   public user: any;
@@ -37,9 +37,15 @@ export class ProfileComponent implements  OnDestroy {
 
   public constructor(    private tweetService: TweetService,    private userService: UserService,    private web3Service: Web3Service,    public dialog: MatDialog) {
 
+    
+    this.user = this.userService.anonymousUser;
 
-    this.web3Service.userConected$.subscribe(async (status: boolean) => {
-      this.user = this.userService.getUserInSession();
+    this.user = this.userService.getUserInSession();
+
+    this.userService.userInSessionChanged$.subscribe(userInSession => {
+        this.user = this.userService.getUserInSession();;
+    });
+
 
       this.tweetService.getMyTweets().then((tweets: Tweet[]) => {
         this.tweets = tweets;
@@ -50,10 +56,16 @@ export class ProfileComponent implements  OnDestroy {
       });
 
       
-    });
+    }
+
+  public ngOnInit() {
+   
   }
 
+  public ngAfterViewInit() {
 
+   
+  }
 
   public ngOnDestroy() {
     //this.subscriptions.forEach(subscription => { subscription.unsubscribe(); });

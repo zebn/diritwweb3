@@ -43,7 +43,7 @@ export class UserService {
         return user;
     }
 
-    /*public async getMyUser() 
+    public async getMyUser() 
     {
         try {
             console.log("User in session: ",this.web3Service.getUserInSession())
@@ -53,7 +53,21 @@ export class UserService {
             //nothing
         }
         return this.anonymousUser;
-    }*/
+    }
+
+    public buildMyUser(userFromWeb3: any) 
+    {
+
+        console.log("User my web3: ",userFromWeb3.owner,userFromWeb3.avatar);
+
+        let user = new User(
+                            "",
+                            userFromWeb3.name,
+                            userFromWeb3.bio,
+                      'https://mysupercoolipfs.infura-ipfs.io/ipfs/' + userFromWeb3.avatar);
+        return user;
+    }
+
 
     public buildUser(userFromWeb3: any) 
     {
