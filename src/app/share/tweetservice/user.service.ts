@@ -6,7 +6,7 @@ import {Subject} from "rxjs";
 @Injectable()
 export class UserService {
 
-    public anonymousUser = new User("",'Anonymous User', '', '');
+    public anonymousUser = new User("",'Anonymous User', '', 'assets/anon.jpg');
 
     protected userInSession: any;
 

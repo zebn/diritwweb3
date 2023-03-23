@@ -28,6 +28,8 @@ export class NewTweetComponent {
         public tweetService: TweetService
     ) {
 
+
+        
         this.userInSession = this.userService.anonymousUser;
 
         this.userService.userInSessionChanged$.subscribe(userInSession => {
